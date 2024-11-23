@@ -1,5 +1,5 @@
 import express from 'express';
-import banner from './routes/banner.js';
+import banner from './routes/bannerVideos.route.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
