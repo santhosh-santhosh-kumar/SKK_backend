@@ -1,8 +1,10 @@
 import express from 'express';
 import banner from './routes/bannerVideos.route.js';
+import connectDB from './database/db.js';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
+connectDB()
 
 // Use the banner router
 app.use('/banner', banner);
