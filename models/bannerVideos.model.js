@@ -1,8 +1,17 @@
 import { model, Schema } from "mongoose";
 
 const schema=new Schema({
-    title:String,
-    url:String,
+    title:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    url:{
+        type:String,
+        required:true,
+        unique:true
+
+    }
 })
 
 const bannerVideos=model('bannerVideos',schema)

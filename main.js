@@ -11,7 +11,7 @@ connectDB()
 app.use('/banner', banner);
 
 app.get('/', (req, res) => {
-    res.send('Test route works!');
+    res.send('SKK Backend');
 });
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

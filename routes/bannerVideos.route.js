@@ -1,9 +1,13 @@
 import express from 'express';
-import {videoDelete, videoIndex, videoUpdate,videoCreate} from "../controllers/bannerVideos.controllers.js"
+import {videoDelete, videoIndex, videoUpdate,videoCreate,videoDetails} from "../controllers/bannerVideos.controllers.js"
 const router = express.Router();
 
 //get for banner videos
 router.get('/', videoIndex);
+
+//get single videos for banner videos
+router.get('/:id', videoDetails);
+
 
 //post for banner videos
 router.post('/', videoCreate);
