@@ -33,15 +33,16 @@ export const videoDetails=async (req,res)=>{
 //***********************************post for banner videos****************************
 export const videoCreate=async (req, res) => {
 
-    const newBannerVideos=new bannerVideos({
-        title:req.body.title,
-        url:req.body.url,
-    })
+    // const newBannerVideos=new bannerVideos({
+    //     title:req.body.title,
+    //     url:req.body.url,
+    // })
 
    
    try{
-    const newVideos=await newBannerVideos.save()
+    const newVideos=await bannerVideos.insertMany(req.body)
     return res.status(201).json(newVideos)
+
 
    }catch(err){
     return res.status(400).json({message:err.message})
@@ -52,15 +53,12 @@ export const videoCreate=async (req, res) => {
 export const videoUpdate=async (req, res) => {
 
     try{
-        const updateVideo=await bannerVideos.findByIdAndUpdate({_id:req.params.id},{
-            title:req.body.title,
-            url:req.body.url
-        },{
+        const updateVideo=await bannerVideos.findByIdAndUpdate({_id:req.params.id},{ $set: req.body },{
             new:true
         })
 res.status(200).json(updateVideo)
     }catch(err){
-        res.status(400).jason({message:err.message})
+        res.status(400).json({message:err.message})
 
     }
 
