@@ -32,13 +32,7 @@ export const videoDetails=async (req,res)=>{
 }
 //***********************************post for banner videos****************************
 export const videoCreate=async (req, res) => {
-
-    // const newBannerVideos=new bannerVideos({
-    //     title:req.body.title,
-    //     url:req.body.url,
-    // })
-
-   
+ 
    try{
     const newVideos=await bannerVideos.insertMany(req.body)
     return res.status(201).json(newVideos)
