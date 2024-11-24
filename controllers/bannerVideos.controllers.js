@@ -1,6 +1,7 @@
 import bannerVideos from "../models/bannerVideos.model.js";
+import { MongoClient, ObjectId } from "mongodb";
 
-//get for banner videos
+//*************************8get for banner videos***************************
 export const videoIndex=async (req, res) => {
 
     try{
@@ -12,7 +13,7 @@ export const videoIndex=async (req, res) => {
     }
 }
 
-//single video get 
+//*************************single video get*******************************
 
 export const videoDetails=async (req,res)=>{
     try{
@@ -29,7 +30,7 @@ export const videoDetails=async (req,res)=>{
 
     }
 }
-//post for banner videos
+//***********************************post for banner videos****************************
 export const videoCreate=async (req, res) => {
 
     const newBannerVideos=new bannerVideos({
@@ -46,17 +47,9 @@ export const videoCreate=async (req, res) => {
     return res.status(400).json({message:err.message})
    }
 }
-//put for banner videos
+
+//********************************put for banner videos********************************
 export const videoUpdate=async (req, res) => {
-
-
-
-    // if(req.body.title!=null){
-    //     res.body.title=req.body.title
-    // }
-    // if(req.body.url!=null){
-    //     res.body.url=req.body.url
-    // }
 
     try{
         const updateVideo=await bannerVideos.findByIdAndUpdate({_id:req.params.id},{
@@ -73,7 +66,13 @@ res.status(200).json(updateVideo)
 
 }
 
-//delete for banner videos
-export const videoDelete=(req, res) => {
-    res.send('Banner route works! DELETE');
+//************************8delete for banner videos***************************888
+export const videoDelete=async (req, res) => {
+    try{
+        const deleteVideos = await bannerVideos.deleteOne({ _id: new ObjectId(req.params.id) });
+     res.json({message:"Delete successfully"})
+    }catch(err){
+        res.status(500).json({message:err.message})
+    }
+
 }
