@@ -8,6 +8,13 @@ import connectDB from "../database/db.js";
 
 //*************************8get for banner images***************************
 export const images=async(req,res)=>{
+  try{
+    const images=await bannerImages.find()
+    res.status(200).json(images)
+  }catch(err){
+    res.status(500).json({err:err.message})
+
+  }
  res.send("Banner Images")   
 }
 //*************************single images get*******************************
