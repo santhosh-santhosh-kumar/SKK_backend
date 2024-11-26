@@ -8,11 +8,7 @@ import bannerShorts from './routes/bannerShorts.route.js';
 const app = express();
 const PORT = process.env.PORT || 3000
 app.use(express.json())
-app.use(
-    cors({
-      origin:"http://localhost:5175/"
-    })
-  );
+app.use(cors());
 connectDB()
 
 // Use the banner router
