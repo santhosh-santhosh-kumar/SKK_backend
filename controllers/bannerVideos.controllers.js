@@ -27,7 +27,7 @@ export const videoDetails=async (req,res)=>{
         }
 
     }catch(err){
-
+        res.status(500).json({err:err.message})
     }
 }
 //***********************************post for banner videos****************************

@@ -6,7 +6,7 @@ import connectDB from "../database/db.js";
 
 
 
-//*************************8get for banner images***************************
+//*************************get for banner images***************************
 export const images=async(req,res)=>{
   try{
     const images=await bannerImages.find()
@@ -15,10 +15,16 @@ export const images=async(req,res)=>{
     res.status(500).json({err:err.message})
 
   }
- res.send("Banner Images")   
 }
 //*************************single images get*******************************
 export const imageDetails=async(req,res)=>{
+  try{
+    const detail=await bannerImages.findById(req.params.id)
+    res.status(200).json(detail)
+
+  }catch(err){
+    res.status(500).jason({err:err.message})
+  }
     res.send("Banner Images")   
    }
 //***********************************post for banner images****************************
@@ -59,5 +65,11 @@ export const imageUpdate=async(req,res)=>{
    }
 //************************delete for banner images***************************
 export const imageDelete=async(req,res)=>{
-    res.send("Banner Images")   
+  try{
+   await bannerImages.deleteOne({_id:new ObjectId(req.params.id)})
+   res.status(200).send("Delete successfully")
+  }catch(error){
+    res.status(500).json({error:error.message})
+  }
+    
    }
