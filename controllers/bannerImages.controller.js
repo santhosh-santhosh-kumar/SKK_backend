@@ -40,7 +40,7 @@ export const imageCreate=async(req,res,next)=>{
   try {
     // Save file details to MongoDB
     const files = req.files.map(file => ({
-      fileName: `https://skk-backend-1.onrender.com//${file.filename}`,
+      fileName: `https://skk-backend-1.onrender.com/Banner_Images/${file.filename}`,
       contentType: file.mimetype,
       path: file.path,
       url:`/uploads/Banner_Images/${file.filename}`
