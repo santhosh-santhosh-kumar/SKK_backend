@@ -40,12 +40,11 @@ export const imageCreate=async(req,res,next)=>{
   try {
     // Save file details to MongoDB
     const files = req.files.map(file => ({
-      fileName: file.originalname,
+      fileName: `https://skk-backend-1.onrender.com//${file.filename}`,
       contentType: file.mimetype,
       path: file.path,
       url:`/uploads/Banner_Images/${file.filename}`
     }));
-
     await bannerImages.insertMany(files);
 
     res.status(200).send({ message: "Files uploaded successfully", files });
