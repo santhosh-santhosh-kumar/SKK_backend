@@ -4,6 +4,7 @@ const schema = new Schema({
   fileName: { type: String, required: true, unique:true},
   contentType: { type: String},
   path: { type: String, },
+  url:{type:String}
 });
 
 const bannerImages = model("bannerImages", schema);

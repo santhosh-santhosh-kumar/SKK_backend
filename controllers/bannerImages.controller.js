@@ -42,7 +42,8 @@ export const imageCreate=async(req,res,next)=>{
     const files = req.files.map(file => ({
       fileName: file.originalname,
       contentType: file.mimetype,
-      path: file.path
+      path: file.path,
+      url:`/uploads/Banner_Images/${file.filename}`
     }));
 
     await bannerImages.insertMany(files);
