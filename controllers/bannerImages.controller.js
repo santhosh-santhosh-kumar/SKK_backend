@@ -58,7 +58,6 @@ export const imageCreate=async(req,res,next)=>{
 
 
 
-
 //********************************put for banner images********************************
 export const imageUpdate=async(req,res)=>{
     res.send("Banner Images")   
