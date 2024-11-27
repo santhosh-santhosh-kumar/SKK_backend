@@ -40,7 +40,7 @@ export const imageCreate=async(req,res,next)=>{
   try {
     
     const files = req.files.map(file => ({
-      fileName: `https://skk-backend.onrender.com/uploads/Banner_Images/${file.filename}`,
+      fileName: `${file.filename}`,
       contentType: file.mimetype,
       path: file.path,
       url:`/uploads/Banner_Images/${file.filename}`
