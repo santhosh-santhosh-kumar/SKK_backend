@@ -43,7 +43,7 @@ export const imageCreate=async(req,res,next)=>{
       fileName: `${file.filename}`,
       contentType: file.mimetype,
       path: file.path,
-      url:`https://skk-backend-1.onrender.com/uploads/Banner_Images/${file.filename}`
+      url:`https://skk-backend.onrender.com/uploads/Banner_Images/${file.filename}`
     }));
     await bannerImages.insertMany(files);
 
