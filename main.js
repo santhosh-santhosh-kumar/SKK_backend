@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors());
-app.use(express.static(path.join(__dirname,'Banner_Images')))
+app.use('/Banner_Images',express.static(path.join(__dirname,'Banner_Images')))
 connectDB()
 
 // Use the banner router
