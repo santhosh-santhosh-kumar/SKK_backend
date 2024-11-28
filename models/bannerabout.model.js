@@ -2,7 +2,7 @@ import express from "express";
 import { Schema,model} from "mongoose";
 
 const schema = new Schema({
-  fileName: { type: String, required: true, unique: true },
+  filename: { type: String, required: true, unique: true },
   path: { type: String },
   url: { type: String },
 });
