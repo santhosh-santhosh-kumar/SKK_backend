@@ -9,7 +9,7 @@ export const getAbout = async (req, res) => {
   } catch (err) {
     res.status(200).json({ err: err.message });
   }
-  res.json(req.body);
+
 };
 
 //get methode - single
