@@ -10,7 +10,7 @@ router.get('/', images);
 router.get('/:id', imageDetails);
 
 
-//post for images videos
+//post for images video
 
 router.post('/',store.array('images',3), imageCreate);
 

@@ -1,13 +1,13 @@
-import multer from "multer";
-import path from 'path';
+// import multer from "multer";
+// import path from 'path';
 
-const storage=multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,"homeAboutImages")
-    },
-    filename:(req,file,cb)=>{
-    cb(null,file.fieldname+'_'+Date.now()+path.extname(file.originalname))
-    }
-})
+// const storage=multer.diskStorage({
+//     destination:(req,file,cb)=>{
+//         cb(null,"homeAboutImages")
+//     },
+//     filename:(req,file,cb)=>{
+//     cb(null,file.fieldname+'_'+Date.now()+path.extname(file.originalname))
+//     }
+// })
 
-export default multer({storage:storage})
+// export default multer({storage:storage})
