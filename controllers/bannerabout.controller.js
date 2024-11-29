@@ -40,7 +40,7 @@ export const postAbout = async (req, res) => {
     const files = {
       filename: file.filename,
       path: file.path,
-      url: `https://skk-backend.onrender.com/homeAboutImages/${file.filename}`,
+      url: `http://localhost:3000/homeAboutImages/${file.filename}`,
     };
     
     const newFile = new  bannerAbout(files);

@@ -24,7 +24,7 @@ export const postPrograms = async (req, res) => {
     const files = new programs({
       program_name: req.body.program_name,
       description: req.body.description,
-      url: `https://skk-backend.onrender.com/programImages/${req.file.filename}`,
+      url: `http://localhost:3000/programImages/${req.file.filename}`,
     });
     await files.save();
 

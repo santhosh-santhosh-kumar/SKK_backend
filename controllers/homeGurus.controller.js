@@ -35,7 +35,7 @@ export const postGurus = async (req, res) => {
     const newFile = new gurus({
       name: req.body.name,
       about: req.body.about,
-      url: `https://skk-backend.onrender.com/homeGurusImages/${file.filename}`,
+      url: `http:localhost:3000/homeGurusImages/${file.filename}`,
     });
     await newFile.save();
     res.status(200).json({ data: newFile });
