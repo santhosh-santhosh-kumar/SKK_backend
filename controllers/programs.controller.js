@@ -9,7 +9,7 @@ export const getPrograms = async (req, res) => {
   }
 };
 
-//get methode
+//get 
 export const getProgram = async (req, res) => {
   try {
     const findPrograms = await programs.findById({ _id: req.params.id });
