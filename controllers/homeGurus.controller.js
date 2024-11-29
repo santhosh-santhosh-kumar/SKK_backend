@@ -16,6 +16,7 @@ export const getGurus = async (req, res) => {
 export const getSingleGuru = async (req, res) => {
   try {
     const guruData = await gurus.findById(req.params.id);
+    console.log(guruData)
     if (!guruData) {
       res.status(404).send("file not found");
     } else {
