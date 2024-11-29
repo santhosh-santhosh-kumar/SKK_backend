@@ -1,12 +1,22 @@
 import programs from "../models/programs.model.js";
 //get methode - all
 export const getPrograms = async (req, res) => {
-  res.send(req.body);
+  try {
+    const findPrograms = await programs.find();
+    res.json(findPrograms);
+  } catch (err) {
+    res.staus(500).json({ err: err.message });
+  }
 };
 
 //get methode
 export const getProgram = async (req, res) => {
-  res.send(req.body);
+  try {
+    const findPrograms = await programs.findById({ _id: req.params.id });
+    res.json(findPrograms);
+  } catch (err) {
+    res.staus(500).json({ err: err.message });
+  }
 };
 
 //post methode
@@ -18,20 +28,36 @@ export const postPrograms = async (req, res) => {
       url: `https://skk-backend.onrender.com/programImages/${req.file.filename}`,
     });
     await files.save();
-    console.log(files)
+
     res.status(200).send("posted");
   } catch (err) {
     res.staus(500).json({ err: err.message });
   }
- 
 };
 
 //put methode
 export const updatePrograms = async (req, res) => {
-  res.send("update");
+  try {
+    const findPrograms = await programs.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body },
+      { new: true }
+    );
+    if (!findPrograms) {
+        return res.status(404).json({ message: "Files not found" });
+      }
+    res.json(findPrograms);
+  } catch (err) {
+    res.staus(500).json({ err: err.message });
+  }
 };
 
 //delete methode
 export const deletePrograms = async (req, res) => {
-  res.send("delete");
+    try {
+        await programs.deleteOne({ _id: new ObjectId(req.params.id) });
+        res.send("delete");
+      } catch (err) {
+        res.status(500).send("not delete");
+      }
 };

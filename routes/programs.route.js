@@ -7,7 +7,7 @@ const router=express.Router();
 router.get('/',getPrograms)
 router.get('/:id',getProgram)
 router.post('/',programsMulter.single('programs'),postPrograms)
-router.put('/',updatePrograms)
-router.delete('/',deletePrograms)
+router.put('/:id',updatePrograms)
+router.delete('/:id',deletePrograms)
 
 export default router
