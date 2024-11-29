@@ -7,6 +7,7 @@ import bannerShorts from './routes/bannerShorts.route.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import bannerabout from "./routes/bannerabout.route.js"
+import homeGurus from "./routes/homeGurus.route.js"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,6 +25,7 @@ app.use('/banner', banner);
 app.use('/bannerimages', bannerimages);
 app.use('/bannershorts', bannerShorts);
 app.use('/bannerabout', bannerabout);
+app.use('/homegurus', homeGurus);
 
 app.get('/', (req, res) => {
     res.send('SKK Backend');

@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
 import bannerImages from "../models/bannerImages.model.js";
-import fs from 'fs'
+import fs from 'fs';
 import connectDB from "../database/db.js";
 
 
