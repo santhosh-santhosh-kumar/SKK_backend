@@ -18,6 +18,7 @@ app.use(express.json())
 app.use(cors());
 app.use('/bannerImages',express.static('bannerImages'))
 app.use('/homeAboutImages',express.static('homeAboutImages'))
+app.use('/homeGurusImages',express.static('homeGurusImages'))
 connectDB()
 
 // Use the banner router
