@@ -19,11 +19,11 @@ router.post('/',homeGuruMulter.single('gurus'),postGurus)
 
 //update methode
 
-router.put('/id',updateGuru)
+router.put('/:id',updateGuru)
 
 
 //delete methode
 
-router.delete('/id',deleteGuru)
+router.delete('/:id',deleteGuru)
 
 export default router;

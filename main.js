@@ -16,17 +16,23 @@ const app = express();
 const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors());
+
+//files upload
 app.use('/bannerImages',express.static('bannerImages'))
 app.use('/homeAboutImages',express.static('homeAboutImages'))
 app.use('/homeGurusImages',express.static('homeGurusImages'))
+app.use('/programs',express.static('programs'))
 connectDB()
 
-// Use the banner router
+//router
 app.use('/banner', banner);
 app.use('/bannerimages', bannerimages);
 app.use('/bannershorts', bannerShorts);
 app.use('/bannerabout', bannerabout);
 app.use('/homegurus', homeGurus);
+// app.use('/programs', programs);
+
+
 
 app.get('/', (req, res) => {
     res.send('SKK Backend');
