@@ -8,7 +8,6 @@ export const getPrograms = async (req, res) => {
     res.staus(500).json({ err: err.message });
   }
 };
-
 //get 
 export const getProgram = async (req, res) => {
   try {
